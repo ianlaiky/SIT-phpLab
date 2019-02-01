@@ -73,13 +73,15 @@ article h2{
 }
 
 .photoBy{
-
+    color: lightgray;
     font-style: italic;
 }
 
 figure img{
     padding: 1px;
     border: solid #989898;
+    width: 100%;
+    height: auto;
 }
 
 figure figcaption{
