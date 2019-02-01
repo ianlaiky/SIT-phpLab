@@ -39,18 +39,26 @@ header h2 {
 header ul {
 
     background-color: #708995;
-    padding: 30px;
+    /*padding: auto;*/
 }
 
 header ul li {
     display: inline-block;
-
+    margin: 20px;
 }
 
 header ul li a {
     color: #41c5d0;
-    margin: 5px;
+    margin: 30px;
     font-size: 20px;
+}
+
+header ul li a:visited{
+    color: #a678fe;
+}
+
+header ul li a:hover{
+    background-color: #fdfcd8;
 }
 
 article {
