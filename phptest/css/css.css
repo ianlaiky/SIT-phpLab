@@ -1,0 +1,14 @@
+.panel-body{
+
+    height: 600px;
+    border: 0px;
+}
+.panel-default {
+    border: 0;
+}
+
+.panel-footer{
+
+    background-color: transparent;
+    border-top: 0px;
+}
