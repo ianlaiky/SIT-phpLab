@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $firstnameErr = "*firstname is Required";
 
     } else {
-        if (!preg_match("/^[a-zA-Z ]*$/", $firstname)) {
+        if (!preg_match("/^[a-zA-Z ]*$/", $_POST["firstname"])) {
             $firstnameErr = "Only letters and white space allowed";
         } else {
             $firstname = test_input($_POST["firstname"]);
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     } else {
 
-        if (!preg_match("/^[a-zA-Z ]*$/", $lastname)) {
+        if (!preg_match("/^[a-zA-Z ]*$/", $_POST["lastname"])) {
             $lastnameErr = "Only letters and white space allowed";
         } else {
             $lastname = test_input($_POST["lastname"]);
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["inputEmail"])) {
         $emailErr = "*Please enter email";
     } else {
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($_POST["inputEmail"], FILTER_VALIDATE_EMAIL)) {
             $emailErr = "Invalid email format";
         }else{
             $email = test_input($_POST["inputEmail"]);
@@ -69,8 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["inputpassword"])) {
         $passwordErr = "*Please enter password";
     } else {
-        if (!preg_match("/^(?=.*\d)(?=.*[!@#\$%\^&\*])(?=.*[a-z])(?=.*[A-Z]).{8,}/", $password)) {
-            $passwordErr = "Only letters and white space allowed";
+        if (!preg_match("/\w{8,}/", $_POST["inputpassword"])) {
+            $passwordErr = "Min 8 character";
         } else {
             $password = test_input($_POST["inputpassword"]);
 
@@ -80,10 +80,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($_POST["confirmpassword"])) {
+
         $cPasswordErr = "*Please confirm your password";
 
     } else {
-        $cPassword = test_input($_POST["confirmpassword"]);
+        if($_POST["confirmpassword"]!=$_POST["inputpassword"]){
+            $cPasswordErr = "*Password do not match";
+        }else{
+            $cPassword = test_input($_POST["confirmpassword"]);
+
+        }
 
     }
 
