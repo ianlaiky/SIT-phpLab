@@ -1,12 +1,28 @@
-<nav class="navbar navbar-default justify-content-between">
+<?php
+
+
+function activeLinks($urinfo){
+
+    $savedata = basename($_SERVER['REQUEST_URI'],".php");
+
+    if($savedata==$urinfo){
+        echo 'class="active"';
+    }
+
+}
+
+?>
+
+
+    <nav class="navbar navbar-default justify-content-between">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Resorts World Sentosa</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            <li <?php activeLinks("index")?>><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-star"></span> Favorite Attraction</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-lock"></span> Block Tickets</a></li>
+            <li <?php activeLinks("register")?>><a href="register.php"><span class="glyphicon glyphicon-lock"></span> Block Tickets</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-star"></span> About RWS</a></li>
 
 
