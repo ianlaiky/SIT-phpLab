@@ -10,10 +10,109 @@
 
 </head>
 <body>
-
+<style>
+    .error {
+        color: red;
+    }
+</style>
 
 <?php
 include 'header.inc'
+?>
+
+<?php
+
+$firstname = $lastname = $email = $password = $cPassword = $checkbox = "";
+$firstnameErr = $lastnameErr = $emailErr = $passwordErr = $cPasswordErr = $checkboxErr = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+    if (empty($_POST["firstname"])) {
+        $firstnameErr = "*firstname is Required";
+
+    } else {
+        if (!preg_match("/^[a-zA-Z ]*$/", $firstname)) {
+            $firstnameErr = "Only letters and white space allowed";
+        } else {
+            $firstname = test_input($_POST["firstname"]);
+
+        }
+    }
+
+    if (empty($_POST["lastname"])) {
+        $lastnameErr = "*lastname is Required";
+
+    } else {
+
+        if (!preg_match("/^[a-zA-Z ]*$/", $lastname)) {
+            $lastnameErr = "Only letters and white space allowed";
+        } else {
+            $lastname = test_input($_POST["lastname"]);
+
+        }
+
+    }
+
+    if (empty($_POST["inputEmail"])) {
+        $emailErr = "*Please enter email";
+    } else {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+        }else{
+            $email = test_input($_POST["inputEmail"]);
+
+        }
+    }
+
+
+    if (empty($_POST["inputpassword"])) {
+        $passwordErr = "*Please enter password";
+    } else {
+        if (!preg_match("/^(?=.*\d)(?=.*[!@#\$%\^&\*])(?=.*[a-z])(?=.*[A-Z]).{8,}/", $password)) {
+            $passwordErr = "Only letters and white space allowed";
+        } else {
+            $password = test_input($_POST["inputpassword"]);
+
+        }
+
+
+    }
+
+    if (empty($_POST["confirmpassword"])) {
+        $cPasswordErr = "*Please confirm your password";
+
+    } else {
+        $cPassword = test_input($_POST["confirmpassword"]);
+
+    }
+
+    if (empty($_POST["checkbox"])) {
+        $checkboxErr = "*Please check the checkbox";
+    } else {
+        $checkbox = test_input($_POST["checkbox"]);
+
+    }
+
+
+    echo $firstname;
+    echo $lastname;
+    echo $email;
+    echo $password;
+    echo $cPassword;
+    echo $checkbox;
+
+}
+
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+
 ?>
 
 
@@ -23,38 +122,38 @@ include 'header.inc'
         <div class="col-md-3">
 
 
-                <div class="list-group">
+            <div class="list-group">
                         <span href="#" class="list-group-item list-group-item-info">
                             Account
                         </span>
 
-                    <a href="#" class="list-group-item">
-                        Login
-                    </a>
+                <a href="#" class="list-group-item">
+                    Login
+                </a>
 
-                    <a href="#" class="list-group-item active">
-                        Register
-                    </a>
+                <a href="#" class="list-group-item active">
+                    Register
+                </a>
 
-                    <a href="#" class="list-group-item">
-                        Recover Password
-                    </a>
+                <a href="#" class="list-group-item">
+                    Recover Password
+                </a>
 
-                </div>
             </div>
-
-
+        </div>
 
 
         <div class="col-md-9">
 
             <div class="panel">
                 <div class="panel-body">
-                    <form method="post" action="register.php">
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                         <div class="form-group row">
                             <label class="col-sm-2" for="firstname">First Name:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="firstname" placeholder="Enter First Name">
+                                <input name="firstname" type="text" class="form-control" id="firstname"
+                                       placeholder="Enter First Name">
+                                <span class="error"><?php echo $firstnameErr; ?></span>
                             </div>
 
                         </div>
@@ -63,8 +162,9 @@ include 'header.inc'
                             <label class="col-sm-2" for="lastname">Last Name: </label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name">
-
+                                <input name="lastname" type="text" class="form-control" id="lastname"
+                                       placeholder="Enter Last Name">
+                                <span class="error"><?php echo $lastnameErr; ?></span>
                             </div>
                         </div>
 
@@ -72,9 +172,9 @@ include 'header.inc'
                         <div class="form-group row">
                             <label class="col-sm-2" for="inputEmail">Email address</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail"
+                                <input name="inputEmail" type="email" class="form-control" id="inputEmail"
                                        aria-describedby="emailHelp" placeholder="Enter email">
-
+                                <span class="error"><?php echo $emailErr; ?></span>
                             </div>
 
                         </div>
@@ -83,24 +183,27 @@ include 'header.inc'
                             <label class="col-sm-2" for="inputpassword">Password</label>
 
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputpassword"
-                                placeholder="Password">
+                                <input name="inputpassword" type="password" class="form-control" id="inputpassword"
+                                       placeholder="Password">
+                                <span class="error"><?php echo $passwordErr; ?></span>
                             </div>
 
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2" for="inputpassword">Password Confirm</label>
+                            <label class="col-sm-2" for="confirmpassword">Password Confirm</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputpassword"
-                                placeholder="Password">
+                                <input name="confirmpassword" type="password" class="form-control" id="confirmpassword"
+                                       placeholder="Password">
+                                <span class="error"><?php echo $cPasswordErr; ?></span>
                             </div>
 
                         </div>
                         <div class="form-check row">
                             <span class="col-sm-2"></span>
                             <div class="col-sm-10">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input name="checkbox" type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                                <span class="error"><?php echo $checkboxErr; ?></span>
                             </div>
 
                         </div>
@@ -139,6 +242,12 @@ include 'footer.inc'
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
 </script>
 <script src="js/bootstrap.min.js"></script>
-
+<!--<script>-->
+<!--    (function($){ })(-->
+<!--        var checking = 0;-->
+<!---->
+<!--    );-->
+<!---->
+<!--</script>-->
 </body>
 </html>
