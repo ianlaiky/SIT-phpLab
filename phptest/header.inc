@@ -16,8 +16,26 @@
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+
+
             </form>
 
         </div>
     </div>
 </nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="jumbotron">
+            <h1 class="display-4">Resorts World Sentosa Singapore</h1>
+            <p class="lead">We offers attractions that leave you wanting more...</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Start Now!</a>
+            </p>
+        </div>
+
+
+    </div>
+
+</div>

@@ -7,7 +7,22 @@
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/css.css" rel="stylesheet"/>
 
+<style>
+    .panel-body{
 
+        height: 600px;
+        border: 0px;
+    }
+    .panel-default {
+        border: 0;
+    }
+
+    .panel-footer{
+
+        background-color: transparent;
+        border-top: 0px;
+    }
+</style>
 </head>
 <body>
 
@@ -16,20 +31,7 @@
 include 'header.inc'
 ?>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="jumbotron">
-            <h1 class="display-4">Resorts World Sentosa Singapore</h1>
-            <p class="lead">We offers attractions that leave you wanting more...</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Start Now!</a>
-            </p>
-        </div>
 
-
-    </div>
-
-</div>
 
 <div class="container">
     <div class="row row-eq-height">
