@@ -23,6 +23,8 @@ function activeLinks($urinfo){
             <li <?php activeLinks("index")?>><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-star"></span> Favorite Attraction</a></li>
             <li <?php activeLinks("register")?>><a href="register.php"><span class="glyphicon glyphicon-lock"></span> Block Tickets</a></li>
+            <li><a href="topdest.php"><span class="glyphicon glyphicon-star"></span> Top destination</a></li>
+
             <li><a href="#"><span class="glyphicon glyphicon-star"></span> About RWS</a></li>
 
 

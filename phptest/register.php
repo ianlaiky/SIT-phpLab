@@ -22,10 +22,13 @@ include 'header.inc'
 
 <?php
 
+$checkbox = "no";
+
 $firstname = $lastname = $email = $password = $cPassword = $checkbox = "";
 $firstnameErr = $lastnameErr = $emailErr = $passwordErr = $cPasswordErr = $checkboxErr = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
 
 
     if (empty($_POST["firstname"])) {
@@ -59,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         if (!filter_var($_POST["inputEmail"], FILTER_VALIDATE_EMAIL)) {
             $emailErr = "Invalid email format";
-        }else{
+        } else {
             $email = test_input($_POST["inputEmail"]);
 
         }
@@ -84,19 +87,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cPasswordErr = "*Please confirm your password";
 
     } else {
-        if($_POST["confirmpassword"]!=$_POST["inputpassword"]){
+        if ($_POST["confirmpassword"] != $_POST["inputpassword"]) {
             $cPasswordErr = "*Password do not match";
-        }else{
+        } else {
             $cPassword = test_input($_POST["confirmpassword"]);
 
         }
 
     }
 
-    if (empty($_POST["checkbox"])) {
+    if (!isset($_POST["checkbox"])) {
         $checkboxErr = "*Please check the checkbox";
     } else {
-        $checkbox = test_input($_POST["checkbox"]);
+        $checkbox = $_POST["checkbox"];
 
     }
 
@@ -107,6 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo $password;
     echo $cPassword;
     echo $checkbox;
+
 
 }
 
@@ -158,7 +162,7 @@ function test_input($data)
                             <label class="col-sm-2" for="firstname">First Name:</label>
                             <div class="col-sm-10">
                                 <input name="firstname" type="text" class="form-control" id="firstname"
-                                       placeholder="Enter First Name">
+                                       placeholder="Enter First Name" value="<?php echo $firstname; ?>">
                                 <span class="error"><?php echo $firstnameErr; ?></span>
                             </div>
 
@@ -169,7 +173,7 @@ function test_input($data)
 
                             <div class="col-sm-10">
                                 <input name="lastname" type="text" class="form-control" id="lastname"
-                                       placeholder="Enter Last Name">
+                                       placeholder="Enter Last Name" value="<?php echo $lastname; ?>">
                                 <span class="error"><?php echo $lastnameErr; ?></span>
                             </div>
                         </div>
@@ -179,7 +183,8 @@ function test_input($data)
                             <label class="col-sm-2" for="inputEmail">Email address</label>
                             <div class="col-sm-10">
                                 <input name="inputEmail" type="email" class="form-control" id="inputEmail"
-                                       aria-describedby="emailHelp" placeholder="Enter email">
+                                       aria-describedby="emailHelp" placeholder="Enter email"
+                                       value="<?php echo $email; ?>">
                                 <span class="error"><?php echo $emailErr; ?></span>
                             </div>
 
@@ -207,7 +212,8 @@ function test_input($data)
                         <div class="form-check row">
                             <span class="col-sm-2"></span>
                             <div class="col-sm-10">
-                                <input name="checkbox" type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input name="checkbox" type="checkbox" class="form-check-input" id="exampleCheck1"
+                                       value="select">
                                 <label class="form-check-label" for="exampleCheck1">Remember me</label>
                                 <span class="error"><?php echo $checkboxErr; ?></span>
                             </div>
