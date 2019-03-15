@@ -10,16 +10,25 @@
 
 </head>
 <body>
-<style>
-    .error {
-        color: red;
-    }
-</style>
+
 
 <?php
 include 'header.inc'
 ?>
 
+
+<?php
+
+require_once('../config.php');
+$connection = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
+
+if (mysqli_connect_errno()) {
+    die(mysqli_connect_errno());
+}
+$sql = "Select * from attractions";
+
+
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
@@ -28,17 +37,36 @@ include 'header.inc'
                             Account
                         </span>
 
-                <a href="#" class="list-group-item">
-                    Login
-                </a>
+                <?php
 
-                <a href="#" class="list-group-item active">
-                    Register
-                </a>
+                function actClick($id,$data,$dataid)
+                {
+                    if ($_GET['id'] == $id) {
+                        echo "<a href='topdest.php?id=" . $dataid . "'" . "class='list-group-item active'>" . $data . "</a>";
+                    } else {
+                        echo "<a href='topdest.php?id=" . $dataid . "'" ."class='list-group-item'>" . $data . "</a>";
+                    };
 
-                <a href="#" class="list-group-item">
-                    Recover Password
-                </a>
+                }
+
+
+                ?>
+
+
+                <?php
+
+                if ($result = mysqli_query($connection, $sql)) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+//                        echo  $row["id"];
+                        echo  actClick($row["id"],$row["type"],$row["id"]);
+
+
+                    }
+                }
+
+
+                ?>
+
 
             </div>
         </div>

@@ -182,7 +182,7 @@ function test_input($data)
                         <div class="form-group row">
                             <label class="col-sm-2" for="inputEmail">Email address</label>
                             <div class="col-sm-10">
-                                <input name="inputEmail" type="email" class="form-control" id="inputEmail"
+                                <input name="inputEmail"  class="form-control" id="inputEmail"
                                        aria-describedby="emailHelp" placeholder="Enter email"
                                        value="<?php echo $email; ?>">
                                 <span class="error"><?php echo $emailErr; ?></span>
