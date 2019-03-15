@@ -104,13 +104,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-    echo $firstname;
-    echo $lastname;
-    echo $email;
-    echo $password;
-    echo $cPassword;
-    echo $checkbox;
+//    echo $firstname;
+//    echo $lastname;
+//    echo $email;
+//    echo $password;
+//    echo $cPassword;
+//    echo $checkbox;
 
+
+    if($firstnameErr==""&& $lastnameErr==""&&$emailErr==""&&$passwordErr==""&&$cPasswordErr==""&&$checkboxErr==""){
+        header('Location: index.php');
+
+    }
 
 }
 
