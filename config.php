@@ -2,8 +2,8 @@
 
 
 define('DBHOST','localhost');
-define('DBUSER','psread');
-define('DBPASS','password');
+define('DBUSER','root');
+define('DBPASS','');
 define('DBNAME','sentosa_resorts');
 
 ?>
