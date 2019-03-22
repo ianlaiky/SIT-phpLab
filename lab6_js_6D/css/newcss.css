@@ -1,0 +1,148 @@
+body {
+
+
+    font-family: Georgia, Cambria, "Times New Roman", serif;
+    font-size: 100%;
+    background-color: #1f3643;
+
+}
+
+h1 {
+
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 15px;
+    margin: 2px;
+}
+
+
+header, footer {
+
+    background-color: #3e636f;
+    color: #ffffff;
+    margin: 3em;
+}
+
+header h1 {
+    margin: 40px;
+    /*display: inline-block;*/
+}
+
+header h2 {
+    margin: 40px 40px 10px;
+    /*display: inline-block;*/
+}
+
+
+header ul {
+
+    background-color: #708995;
+    /*padding: auto;*/
+}
+
+header ul li {
+    display: inline-block;
+    margin: 20px;
+}
+
+header ul li a {
+    color: #41c5d0;
+    margin: 30px;
+    font-size: 20px;
+}
+
+header ul li a:visited{
+    color: #a678fe;
+}
+
+header ul li a:hover{
+    background-color: #fdfcd8;
+}
+
+article {
+    margin: 3em;
+    background-color: #fdfdfe;
+    padding: 10px;
+}
+
+article h2{
+    border-bottom: solid #9b9b9b;
+
+}
+
+.photoBy{
+    color: lightgray;
+    font-style: italic;
+}
+
+.clickyimg img{
+    padding: 1px;
+    border: solid #989898;
+    width: 100%;
+    height: auto;
+}
+
+.clickyimg figcaption{
+    color: #8e9697;
+}
+
+
+.author{
+
+    font-style: italic;
+    color: #b6bfbe;
+}
+.reviews{
+    color: black;
+    border-bottom: solid grey;
+}
+footer a{
+    color: #41c5d0;
+    margin: 5px;
+    font-size: 20px;
+}
+
+footer{
+    padding: 10px;
+}
+footer i{
+    margin: 5px;
+}
+
+figure {
+    display: inline-block;
+
+}
+
+.thumbnail{
+    position: relative;
+}
+.popup img{
+    background-color: #dfdedf;
+    padding: 10px;
+    width: 500px;
+    height: auto;
+
+}
+figcaption.popup{
+    z-index: 1;
+    visibility: hidden;
+    /*display:none;*/
+    position: absolute;
+
+}
+
+
+figcaption.popup{
+    position: absolute;
+    bottom: 30px;
+    left:30px;
+    /*display: block;*/
+    /*visibility: visible;*/
+}
+
+#img1{
+    /*visibility: hidden;*/
+}
