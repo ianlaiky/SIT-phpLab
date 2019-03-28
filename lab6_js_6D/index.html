@@ -11,8 +11,12 @@
 
     <script>
         function extendImg(id){
-            console.log("dsfds");
-            document.getElementById("img1")[0].style.visibility = "visible";
+
+            document.getElementById(id).style.visibility = "visible";
+        }
+        function retractImg(id){
+
+            document.getElementById(id).style.visibility = "hidden";
         }
 
     </script>
@@ -61,7 +65,7 @@
     <h2><a id="RelatedPhotos"></a>Related Photos</h2>
 
     <figure class="thumbnail">
-        <img onmouseover="extendImg('img1')" src="images/related-square1.jpg"/>
+        <img onmouseover="extendImg('img1')" onmouseout="retractImg('img1')" src="images/related-square1.jpg"/>
 
         <figcaption class="popup">
             <img id="img1" src="images/related-large1.jpg"/>
@@ -69,14 +73,14 @@
     </figure>
 
     <figure class="thumbnail">
-        <img src="images/related-square2.jpg">
+        <img onmouseover="extendImg('img2')" onmouseout="retractImg('img2')" src="images/related-square2.jpg">
 
         <figcaption class="popup">
             <img id="img2" src="images/related-large2.jpg"/>
         </figcaption>
     </figure>
     <figure class="thumbnail">
-        <img src="images/related-square3.jpg">
+        <img onmouseover="extendImg('img3')" onmouseout="retractImg('img3')" src="images/related-square3.jpg">
         <figcaption class="popup">
             <img id="img3" src="images/related-large3.jpg"/>
         </figcaption>
