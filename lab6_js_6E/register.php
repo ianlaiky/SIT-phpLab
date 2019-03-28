@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/css.css" rel="stylesheet"/>
+    <script src="js/register.js"></script>
 
 
 </head>
@@ -166,7 +167,7 @@ function test_input($data)
                         <div class="form-group row">
                             <label class="col-sm-2" for="firstname">First Name:</label>
                             <div class="col-sm-10">
-                                <input name="firstname" type="text" class="form-control" id="firstname"
+                                <input required name="firstname" type="text" class="form-control" id="firstname"
                                        placeholder="Enter First Name" value="<?php echo $firstname; ?>">
                                 <span class="error"><?php echo $firstnameErr; ?></span>
                             </div>
@@ -177,7 +178,7 @@ function test_input($data)
                             <label class="col-sm-2" for="lastname">Last Name: </label>
 
                             <div class="col-sm-10">
-                                <input name="lastname" type="text" class="form-control" id="lastname"
+                                <input required name="lastname" type="text" class="form-control" id="lastname"
                                        placeholder="Enter Last Name" value="<?php echo $lastname; ?>">
                                 <span class="error"><?php echo $lastnameErr; ?></span>
                             </div>
@@ -187,9 +188,9 @@ function test_input($data)
                         <div class="form-group row">
                             <label class="col-sm-2" for="inputEmail">Email address</label>
                             <div class="col-sm-10">
-                                <input name="inputEmail"  class="form-control" id="inputEmail"
+                                <input name="inputEmail" class="form-control" id="inputEmail"
                                        aria-describedby="emailHelp" placeholder="Enter email"
-                                       value="<?php echo $email; ?>">
+                                       value="<?php echo $email; ?>" type="email">
                                 <span class="error"><?php echo $emailErr; ?></span>
                             </div>
 
@@ -199,7 +200,7 @@ function test_input($data)
                             <label class="col-sm-2" for="inputpassword">Password</label>
 
                             <div class="col-sm-10">
-                                <input name="inputpassword" type="password" class="form-control" id="inputpassword"
+                                <input required  title="Password should be 8 or more characters" pattern=".{8,}" name="inputpassword" type="password" class="form-control" id="inputpassword"
                                        placeholder="Password">
                                 <span class="error"><?php echo $passwordErr; ?></span>
                             </div>
@@ -208,7 +209,7 @@ function test_input($data)
                         <div class="form-group row">
                             <label class="col-sm-2" for="confirmpassword">Password Confirm</label>
                             <div class="col-sm-10">
-                                <input name="confirmpassword" type="password" class="form-control" id="confirmpassword"
+                                <input required oninput="check(this)" name="confirmpassword" type="password" class="form-control" id="confirmpassword"
                                        placeholder="Password">
                                 <span class="error"><?php echo $cPasswordErr; ?></span>
                             </div>
@@ -217,9 +218,9 @@ function test_input($data)
                         <div class="form-check row">
                             <span class="col-sm-2"></span>
                             <div class="col-sm-10">
-                                <input name="checkbox" type="checkbox" class="form-check-input" id="exampleCheck1"
+                                <input required name="checkbox" type="checkbox" class="form-check-input" id="exampleCheck1"
                                        value="select">
-                                <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                                <label class="form-check-label" for="exampleCheck1">Agree to privacy agreement</label>
                                 <span class="error"><?php echo $checkboxErr; ?></span>
                             </div>
 
