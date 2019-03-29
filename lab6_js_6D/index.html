@@ -11,14 +11,42 @@
 
 
     <script>
-        function extendImg(id){
 
-            document.getElementById(id).style.visibility = "visible";
-        }
-        function retractImg(id){
 
-            document.getElementById(id).style.visibility = "hidden";
+        function addfile(id,file){
+
+            var figcaption = document.getElementById(id);
+            var myNode = document.getElementById(id);
+            while (myNode.firstChild) {
+                myNode.removeChild(myNode.firstChild);
+            }
+
+            var figChild = document.createElement("img");
+            figChild.setAttribute("src", file);
+
+            figcaption.appendChild(figChild);
+            // document.getElementsByClassName("thumbnail")[index].appendChild(figcaption);
+
         }
+
+        function remove(id) {
+            var myNode = document.getElementById(id);
+            while (myNode.firstChild) {
+                myNode.removeChild(myNode.firstChild);
+            }
+        }
+
+
+
+
+        // function extendImg(id){
+        //
+        //     document.getElementById(id).style.visibility = "visible";
+        // }
+        // function retractImg(id){
+        //
+        //     document.getElementById(id).style.visibility = "hidden";
+        // }
 
     </script>
 </head>
@@ -65,25 +93,25 @@
     </figure>
     <h2><a id="RelatedPhotos"></a>Related Photos</h2>
 
-    <figure class="thumbnail">
-        <img onmouseover="extendImg('img1')" onmouseout="retractImg('img1')" src="images/related-square1.jpg"/>
+    <figure onmouseleave="remove('img1')" class="thumbnail">
+        <img onmouseover="addfile('img1','images/related-large1.jpg')" src="images/related-square1.jpg"/>
 
-        <figcaption class="popup">
-            <img id="img1" src="images/related-large1.jpg"/>
+        <figcaption id="img1" class="popup">
+            <!--<img id="img1" src="images/related-large1.jpg"/>-->
         </figcaption>
     </figure>
 
-    <figure class="thumbnail">
-        <img onmouseover="extendImg('img2')" onmouseout="retractImg('img2')" src="images/related-square2.jpg">
+    <figure onmouseleave="remove('img2')" class="thumbnail">
+        <img onmouseover="addfile('img2','images/related-large2.jpg')" src="images/related-square2.jpg">
 
-        <figcaption class="popup">
-            <img id="img2" src="images/related-large2.jpg"/>
+        <figcaption id="img2" class="popup">
+            <!--<img " src="images/related-large2.jpg"/>-->
         </figcaption>
     </figure>
-    <figure class="thumbnail">
-        <img onmouseover="extendImg('img3')" onmouseout="retractImg('img3')" src="images/related-square3.jpg">
-        <figcaption class="popup">
-            <img id="img3" src="images/related-large3.jpg"/>
+    <figure onmouseleave="remove('img3')" class="thumbnail">
+        <img onmouseover="addfile('img3','images/related-large3.jpg')" src="images/related-square3.jpg">
+        <figcaption id="img3" class="popup">
+            <!--<img id="img3" src="images/related-large3.jpg"/>-->
         </figcaption>
     </figure>
 

@@ -128,7 +128,7 @@ figure {
 }
 figcaption.popup{
     z-index: 1;
-    visibility: hidden;
+    /*visibility: hidden;*/
     /*display:none;*/
     position: absolute;
 
